@@ -6,6 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="icon" type="image/x-icon" href="/img/favicon.png">
+
 
     <title>pixel.maker 1.0</title>
 </head>
@@ -18,17 +20,19 @@
         <div id="footer">
             <div id="resolution-option">
                 <label>Choose the resolution</label>
-                <input type="range" id="resolution" min="0" max="60" value="8" step="1"
-                    oninput="getResolution(this.value)">
+                <input type="range" id="resolution" min="0" max="60" value="8" step="1" oninput="setCanvas(this.value)">
 
                 <p>Resolution: <output id="resolutionValue"></output></p>
+
             </div>
             <div id="buttons">
-                <div id="clear" class="button">Clear canvas</div>
-                <div id="pen" class="button active">Pen tool(q)</div>
-                <div id="color" class="button">Color tool(e)</div>
+
+                <div id="pen" class="button active">Pen tool (q)</div>
+                <div id="eraser" class="button">Eraser tool (e)</div>
+                <div id="color" class="button">Color tool (e)</div>
                 <div id="opacity-pen" class="button">Opacity pen tool(r)</div>
             </div>
+            <div id="clear" class="button">Clear canvas</div>
         </div>
     </div>
 

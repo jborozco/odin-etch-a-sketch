@@ -80,6 +80,10 @@ p {
 
 }
 
+.eraser .pixel {
+    cursor: cell;
+}
+
 .dark-pixel {
     background-color: #003300;
     border: solid 1px #003300;
@@ -111,6 +115,9 @@ p {
     background-color: #003300;
     color: white;
 }
+
+
+
 
 /*style range input*/
 input[type=range] {
