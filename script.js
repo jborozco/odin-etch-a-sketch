@@ -83,7 +83,7 @@ document.body.onmouseup = function () {
 
 let pixels = document.getElementsByClassName('pixel');
 //3. Add a button to erase the canvas
-let eraseBtn = document.getElementById('erase');
+let eraseBtn = document.getElementById('clear');
 eraseBtn.addEventListener('click', event => {
     for (pixel of pixels) {
         pixel.classList.remove('dark-pixel')

@@ -1,1 +1,2 @@
-Creation of a pixel art station in the context of the <a href="https://www.theodinproject.com/">Odin project</a>.
+The pixel.maker 1.0 
+Made for the <a href="https://www.theodinproject.com/">Odin project</a>.
