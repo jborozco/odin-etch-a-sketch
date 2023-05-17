@@ -12,9 +12,11 @@
 
 <body>
 
-    <div id="canvas">
+    <div id="canvas"></div>
+    <input type="range" id="resolution" min="0" max="60" value="8" step="1" oninput="getResolution(this.value)">
+    <label>Choose the resolution</label>
+    <p>Value: <output id="resolutionValue"></output></p>
 
-    </div>
     <div id="erase">Erase</div>
     <script src="script.js" defer></script>
 
