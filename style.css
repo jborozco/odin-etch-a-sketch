@@ -13,7 +13,11 @@
 
 .pixel {
     width: 25%;
-    border: solid 1px blue;
+    border: solid 1px darkgreen;
     flex: 1 0 25%;
 
+}
+
+.dark-pixel {
+    background-color: darkgreen;
 }
