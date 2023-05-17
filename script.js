@@ -1,11 +1,10 @@
 //1. Set 4x4 squares in a canvas
 let canvas = document.getElementById('canvas');
 
-
 function FillCanvas(PxlNb) {
     for (let i = PxlNb; i > 0; i--) {
         let pixel = document.createElement("div");
-        pixel.className = `pixel pixel-${i}`;
+        pixel.className = `pixel`;
         canvas.appendChild(pixel);
     }
 }
@@ -13,11 +12,19 @@ function FillCanvas(PxlNb) {
 FillCanvas(16);
 
 //2. On click + hover on a div, the squares turn black
-
 let pixels = document.getElementsByClassName('pixel');
 let pixelsArray = [...pixels];
 
 
+
+
+
+//2.1  function switch color
+function darkPixel(event) {
+    if (mouseDown) {
+        event.target.classList.add("dark-pixel");
+    }
+}
 
 //listen if the mouse is down
 let mouseDown = 0;
@@ -28,13 +35,7 @@ document.body.onmouseup = function () {
     --mouseDown;
 }
 
-//2.1 switch color function on click
-function darkPixel(event) {
-    if (mouseDown) {
-        event.target.classList.add("dark-pixel");
-    }
-}
-
+//2.1 switch color function on click + mouseover
 
 pixelsArray.forEach(item => {
     item.addEventListener('mouseover', event => {
@@ -49,18 +50,19 @@ pixelsArray.forEach(item => {
 });
 
 
-
-
-
-
-
-
-
 //3. Choose the number of squares in the canvas and reset the grid, 
 //add a limit of 64px
 
 
-//4. Add a button to clear/reset the canvas
+
+//4. Add a button to erase the canvas
+let eraseBtn = document.getElementById('erase');
+eraseBtn.addEventListener('click', event => {
+    for (pixel of pixels) {
+        pixel.classList.remove('dark-pixel')
+    }
+})
+
 
 
 //5. Add a switch to a new behavior that "erase" by returning the div to white
