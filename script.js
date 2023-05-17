@@ -63,6 +63,15 @@ function darkPixel(event) {
     }
 }
 
+// function erase color
+function erasePixel(event) {
+    if (mouseDown) {
+        event.target.className = "pixel";;
+    }
+}
+// function erase color
+
+
 //Listen if the mouse is down
 let mouseDown = 0;
 document.body.onmousedown = function () {
@@ -72,13 +81,7 @@ document.body.onmouseup = function () {
     mouseDown = 0;;
 }
 
-
-
-
-
-
-
-
+let pixels = document.getElementsByClassName('pixel');
 //3. Add a button to erase the canvas
 let eraseBtn = document.getElementById('erase');
 eraseBtn.addEventListener('click', event => {
