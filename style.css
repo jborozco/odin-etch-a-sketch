@@ -1,0 +1,19 @@
+* {
+    box-sizing: border-box;
+}
+
+#canvas {
+    width: 640px;
+    height: 640px;
+    display: flex;
+    flex-wrap: wrap;
+    border: solid 1px green;
+
+}
+
+.pixel {
+    width: 25%;
+    border: solid 1px blue;
+    flex: 1 0 25%;
+
+}

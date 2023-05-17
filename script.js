@@ -1,5 +1,18 @@
 //1. Set 4x4 squares in a canvas
+let canvas = document.getElementById('canvas');
 
+
+function FillCanvas(PxlNb) {
+    for (let i = PxlNb; i > 0; i--) {
+        let pixel = document.createElement("div");
+        pixel.className = "pixel";
+        canvas.appendChild(pixel);
+        console.log(i);
+
+    }
+}
+
+FillCanvas(16);
 
 //2. On click + hover on a div, the squares turn black
 
