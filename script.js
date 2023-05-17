@@ -36,10 +36,12 @@ function getResolution(PixelsByLine) { // activated when change range input
     let ClkPixelsArray = [...pixels];
 
     //On click + hover on a div, the squares turn black
-    console.log(ClkPixelsArray);
     ClkPixelsArray.forEach(item => {
+        item.addEventListener('mousedown', event => {
+            darkPixel(event);
+        })
         item.addEventListener('mouseover', event => {
-            if (mouseDown == true) {
+            if (mouseDown) {
                 darkPixel(event);
             }
         })
@@ -56,18 +58,14 @@ getResolution(8)
 
 
 
-//2.1  function switch color
+// function switch color
 function darkPixel(event) {
-    if (mouseDown) {
-        event.target.classList.add("dark-pixel");
-    }
+    event.target.classList.add("dark-pixel");
 }
 
-// function erase color
+// function clear canvas
 function erasePixel(event) {
-    if (mouseDown) {
-        event.target.className = "pixel";;
-    }
+    event.target.className = "pixel";;
 }
 // function erase color
 
@@ -82,6 +80,7 @@ document.body.onmouseup = function () {
 }
 
 let pixels = document.getElementsByClassName('pixel');
+
 //3. Add a button to erase the canvas
 let eraseBtn = document.getElementById('clear');
 eraseBtn.addEventListener('click', event => {

@@ -48,7 +48,21 @@ body #content {
     flex-direction: row;
     width: 640px;
     border: 1px solid #003300;
-    padding: 8px;
+    padding: 30px;
+}
+
+label {
+    font-size: 20px;
+    text-decoration: underline;
+}
+
+p {
+    margin: 0;
+    background: #003300;
+    padding: 20px;
+    color: white;
+    width: fit-content;
+    border-radius: 3px;
 }
 
 #resolution-option {
