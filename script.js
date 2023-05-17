@@ -1,15 +1,24 @@
+
+
 //1. Set 4x4 squares in a canvas
 let canvas = document.getElementById('canvas');
+
+//3. Choose the number of squares in the canvas and reset the grid, 
+//add a limit of 64px
+let PixelsByLine = prompt("Choose your resolution");
+let pixelSize = PixelsByLine / (PixelsByLine * PixelsByLine) * 100;
+FillCanvas(PixelsByLine * PixelsByLine);
 
 function FillCanvas(PxlNb) {
     for (let i = PxlNb; i > 0; i--) {
         let pixel = document.createElement("div");
         pixel.className = `pixel`;
+        pixel.style.flex = `1 0 ${pixelSize}%`;
         canvas.appendChild(pixel);
     }
 }
 
-FillCanvas(16);
+
 
 //2. On click + hover on a div, the squares turn black
 let pixels = document.getElementsByClassName('pixel');
@@ -49,9 +58,6 @@ pixelsArray.forEach(item => {
     })
 });
 
-
-//3. Choose the number of squares in the canvas and reset the grid, 
-//add a limit of 64px
 
 
 
