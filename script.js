@@ -56,14 +56,27 @@ function modifyPixel(event) {
     if (canvas.className == 'eraser') { //erase on click
         event.target.className = "pixel";
         event.target.style.backgroundColor = "";
+        event.target.style.borderColor = "";
+
     }
     else if (canvas.className == 'color') { //display random color on click
         const randomColor = Math.floor(Math.random() * 16777215).toString(16);
         event.target.style.backgroundColor = "#" + randomColor;
+        event.target.style.borderColor = "#" + randomColor;
+    }
+    else if (canvas.className == 'shade') { //display random color on click
+        let pixelMouseCount;
+        pixelMouseCount += 1;
+        event.target.classList.add("dark-pixel");
+        event.target.style.backgroundColor = "";
+        event.target.style.borderColor = "";
+
     }
     else { // make it dark (default)
         event.target.classList.add("dark-pixel");
         event.target.style.backgroundColor = "";
+        event.target.style.borderColor = "";
+
     }
 }
 
@@ -84,11 +97,13 @@ document.body.onmouseup = function () {
 
 let pixels = document.getElementsByClassName('pixel');
 
-//3. Add a button to erase the canvas
+//Button to clear canvas
 let clearBtn = document.getElementById('clear');
 clearBtn.addEventListener('click', event => {
     for (pixel of pixels) {
-        pixel.classList.remove('dark-pixel')
+        pixel.className = 'pixel';
+        pixel.style.backgroundColor = "";
+        pixel.style.borderColor = "";
     }
 })
 
@@ -96,35 +111,38 @@ clearBtn.addEventListener('click', event => {
 let penBtn = document.getElementById('pen');
 let eraserBtn = document.getElementById('eraser');
 let colorBtn = document.getElementById('color');
+let shadeBtn = document.getElementById('shade');
+
 let buttons = document.getElementsByClassName('button')
 
 //Set up canvas to pen mode
 penBtn.addEventListener('click', event => {
     canvas.className = ``;
     for (button of buttons) { button.classList.remove('active'); }
-    penBtn.classList.add('active');
+    event.target.classList.add('active');
 
 })
 
 //Set up canvas to eraser mode
-
 eraserBtn.addEventListener('click', event => {
     canvas.className = `eraser`;
     for (button of buttons) { button.classList.remove('active'); }
-    eraserBtn.classList.add('active');
+    event.target.classList.add('active');
 })
 
 //Set up canvas to randomcolor mode
 colorBtn.addEventListener('click', event => {
     canvas.className = `color`;
     for (button of buttons) { button.classList.remove('active'); }
-    colorBtn.classList.add('active');
+    event.target.classList.add('active');
 
 })
 
+//Set up canvas to shade mode
+shadeBtn.addEventListener('click', event => {
+    canvas.className = `shade`;
+    for (button of buttons) { button.classList.remove('active'); }
+    event.target.classList.add('active');
 
-//5. Add a switch to a new behavior that color the div with random 
-//colors
+})
 
-
-//6. Add a switch to a new behavior that color the div that add 10% black on click + hover  
